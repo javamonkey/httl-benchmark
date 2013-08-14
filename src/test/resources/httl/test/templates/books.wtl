@@ -1,0 +1,63 @@
+<%
+var user;
+var books;
+
+@import java.text.SimpleDateFormat;
+@import java.util.Date;
+
+var new_dataFormat = native new SimpleDateFormat(String);
+var format =  native SimpleDateFormat.format(Date);
+
+var dataFormat = new_dataFormat("yyyy-MM-dd HH:mm:ss");
+
+
+%><html>
+<body>
+${user.name}/${user.role}<br/><%
+if(user.role == "admin"){
+%>
+<table>
+  <tr>
+    <th>NO.</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Publisher</th>
+    <th>PublicationDate</th>
+    <th>Price</th>
+    <th>DiscountPercent</th>
+    <th>DiscountPrice</th>
+  </tr><%
+    for(book : books){
+	if(book.price > 0){
+%>
+  <tr>
+    <td>${for.iter.index}</td>
+    <td>${book.title}</td>
+    <td>${book.author}</td>
+    <td>${book.publisher}</td>
+    <td>${dataFormat@format(book.publication)}</td>
+    <td>${book.price}</td>
+    <td>${book.discount}%</td>
+    <td>${book.price * book.discount / 100}</td>
+  </tr><%
+	}
+    }
+%>
+</table><%
+}else if(user != null){
+%>
+<table>
+  <tr>
+    <td>No privilege.</td>
+  </tr>
+</table><%
+}else{
+%>
+<table>
+  <tr>
+    <td>No login.</td>
+  </tr>
+</table><%
+}%>
+</body>
+</html>

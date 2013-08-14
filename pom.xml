@@ -52,6 +52,12 @@
 			<version>1.2M1</version>
 			<scope>test</scope>
 		</dependency>
+                <dependency>
+                	<groupId>com.github.zqq90.webit-script</groupId>
+                	<artifactId>webit-script</artifactId>
+                	<version>0.8.0-SNAPSHOT</version>
+			<scope>test</scope>
+                </dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -82,6 +88,11 @@
 			<id>httl-repository</id>
 			<name>Httl Repository</name>
 			<url>http://httl.github.io/maven</url>
+		</repository>
+                <repository>
+			<id>zqq90-repository</id>
+			<name>Zqq90 Repository</name>
+			<url>http://zqq90.github.io/maven</url>
 		</repository>
 	</repositories>
 	<scm>
